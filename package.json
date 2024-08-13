@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/elanora96/elanora96.github.io/issues"
   },
-  "homepage": "https://elanora.lol/",
+  "homepage": "https://elanora.lol",
   "dependencies": {
     "@lomray/vite-ssr-boost": "^2.8.1",
     "react": "^18.3.1",
