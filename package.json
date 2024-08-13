@@ -1,0 +1,56 @@
+{
+  "name": "elanora96.github.io",
+  "version": "2.0.0",
+  "description": "My personal site",
+  "type": "module",
+  "scripts": {
+    "dev": "ssr-boost dev",
+    "build": "ssr-boost build",
+    "start:ssr": "ssr-boost start",
+    "start:spa": "ssr-boost start --only-client",
+    "preview": "ssr-boost preview",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elanora96/elanora96.github.io.git"
+  },
+  "keywords": [
+    "react",
+    "vite",
+    "typescript",
+    "eslint"
+  ],
+  "author": "Elanora Manson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elanora96/elanora96.github.io/issues"
+  },
+  "homepage": "https://elanora.lol/",
+  "dependencies": {
+    "@lomray/vite-ssr-boost": "^2.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@lomray/consistent-suspense": "^2.0.5",
+    "@lomray/react-route-manager": "^2.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "husky": "^9.1.4",
+    "lightningcss": "^1.26.0",
+    "lint-staged": "^15.2.8",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^5.3.5",
+    "vite-tsconfig-paths": "^4.3.2"
+  }
+}
