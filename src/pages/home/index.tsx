@@ -23,7 +23,7 @@ const Home: FCCRoute = () => {
           src="assets/images/cool_construction_skull.bmp"
         />
         <p className={styles.ramble}>
-          I've had this site for just{' '}
+          I&apos;ve had this site for just{' '}
           <span id="dynamic-date">{diff === 1 ? '1 day' : `${diff} days`}</span>
           <noscript>a few days</noscript> buddy!
         </p>

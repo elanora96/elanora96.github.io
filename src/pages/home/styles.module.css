@@ -22,19 +22,22 @@
 }
 
 .main {
+  overflow: hidden;
+  align-items: center;
+
   width: 100%;
   height: 100dvh;
-  align-items: center;
-  background: black;
+
   font-size: 2rem;
-  overflow: hidden;
+
+  background: black;
 }
 
 .coolText {
-  font-family: 'Romanum Est';
+  font-family: 'Romanum Est', fantasy;
+  font-size: 5rem;
   color: white;
   text-align: center;
-  font-size: 5rem;
 }
 
 .ramble {
@@ -43,6 +46,6 @@
 }
 
 .footer {
-  font-size: 1.2rem;
   justify-self: flex-end;
+  font-size: 1.2rem;
 }

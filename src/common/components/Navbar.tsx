@@ -1,31 +1,31 @@
-import type { FC } from 'react';
-import { repository } from '../../../package.json';
 import RouteManager from '@services/route-manager';
-import { Link, Outlet } from 'react-router-dom';
+import type { FC } from 'react';
+import { Link } from 'react-router-dom';
+import { repository } from '../../../package.json';
+import styles from './Navbar.module.css';
 
-const Navbar: FC = () => {
-  const [repoUrl] = repository.url.match(/https?:\/\/[^\s]+/) || [''];
+interface NavbarProps {
+  siteName?: string;
+  repoUrl?: string;
+}
+
+const Navbar: FC<NavbarProps> = ({
+  siteName = 'elanora.lol',
+  repoUrl = (/https?:\/\/[^\s]+/.exec(repository.url) ?? [''])[0],
+}) => {
   return (
-    <>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <span>
-          <h3>
-            <Link
-              style={{ textDecoration: 'none', color: 'white' }}
-              to={RouteManager.makeURL('home')}
-            >
-              elanora.lol
-            </Link>
-          </h3>
-        </span>
-        <span>
-          <Link to={RouteManager.makeURL('home')}>Home</Link>{' '}
-          <Link to={RouteManager.makeURL('resume')}>Resume</Link>{' '}
-          <a href={repoUrl}>Source</a>
-        </span>
-      </div>
-      <Outlet />
-    </>
+    <div className={styles.Navbar}>
+      <span>
+        <Link className={styles.Navlogo} to={RouteManager.makeURL('home')}>
+          {siteName}
+        </Link>
+      </span>
+      <span className={styles.Navlinks}>
+        <Link to={RouteManager.makeURL('home')}>Home</Link>{' '}
+        <Link to={RouteManager.makeURL('resume')}>Resume</Link>{' '}
+        {repoUrl ? <a href={repoUrl}>Source</a> : ''}
+      </span>
+    </div>
   );
 };
 

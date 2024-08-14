@@ -28,6 +28,7 @@
       "@services/*": ["./common/services/*"]
     }
   },
-  "include": ["src", "public/assets"],
+  "include": ["src"],
+  "exclude": ["dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

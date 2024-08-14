@@ -1,6 +1,6 @@
+import { WINDOW_OBJ } from '@constants/index';
 import { FCRoute } from '@lomray/vite-ssr-boost/interfaces/fc-route';
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
-import { WINDOW_OBJ } from '@constants/index';
 
 const NotFound: FCRoute = () => {
   const error = useRouteError() as Error;

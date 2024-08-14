@@ -1,11 +1,11 @@
+import AppLayout from '@components/layouts/AppLayout';
 import type { TRouteObject } from '@lomray/vite-ssr-boost/interfaces/route-object';
-import RouteManager from '@services/route-manager';
 import NotFound from '@pages/not-found';
-import Navbar from '@components/Navbar';
+import RouteManager from '@services/route-manager';
 
 const routes: TRouteObject[] = [
   {
-    Component: Navbar,
+    Component: AppLayout,
     ErrorBoundary: NotFound,
     children: [
       {

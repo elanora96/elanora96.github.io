@@ -1,0 +1,73 @@
+.Navbar {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+
+  overflow: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: var(--navbar-height);
+  margin: 0;
+  padding: 0 1em 0.2em;
+
+  background-color: var(--color-background);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0%),
+    rgb(1 0 0 / 70%)
+  );
+
+  & a {
+    z-index: calc(inherit + 1);
+  }
+}
+
+.Navlogo {
+  font-size: 3rem;
+  font-weight: bolder;
+  color: #fff50f;
+  text-decoration: none;
+  text-shadow:
+    0.25rem 0.25rem 0 #f071aa,
+    -0.25rem -0.25rem 0 #39cad4,
+    0.25rem -0.25rem 0 #67fc10,
+    -0.25rem 0.25rem 0 #0380c6;
+
+  -webkit-text-stroke: 0.75px #010000;
+}
+
+.Navlinks {
+  & a {
+    position: relative;
+
+    font-size: 1.25rem;
+    color: #fff50f;
+    text-decoration: none;
+
+    background-color: #f071aa;
+    border: 0.25em solid #f071aa;
+    border-radius: 10%;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: 999;
+      top: -0.25em;
+      left: -0.25em;
+
+      width: calc(100% + 0.5em);
+      height: calc(100% + 0.5em);
+
+      background-image: linear-gradient(
+        to bottom,
+        rgb(0 0 0 / 0%),
+        rgb(1 0 0 / 20%)
+      );
+      border-radius: inherit;
+    }
+  }
+}

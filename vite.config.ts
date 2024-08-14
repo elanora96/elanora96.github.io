@@ -15,7 +15,6 @@ export default defineConfig({
     lightningcss: {
       cssModules: {
         pattern: '[hash]_[local]',
-        dashedIdents: true,
       },
     },
   },
