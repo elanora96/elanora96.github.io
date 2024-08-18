@@ -3,7 +3,7 @@
   z-index: 99;
   top: 0;
 
-  overflow: none;
+  container: navbar / inline-size;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,10 +19,10 @@
     rgb(0 0 0 / 0%),
     rgb(1 0 0 / 70%)
   );
+}
 
-  & a {
-    z-index: calc(inherit + 1);
-  }
+.menu {
+  display: none;
 }
 
 .Navlogo {
@@ -69,5 +69,56 @@
       );
       border-radius: inherit;
     }
+  }
+
+&.open {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1rem;
+
+  background: var(--color-background);
+  border: 5px var(--color-primary) solid;
+  border-radius: 10%;
+
+  a {
+    text-align: center;
+  }
+}
+}
+
+@container navbar (max-width: 550px) {
+  .NavlogoContainer {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu {
+    cursor: pointer;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    height: var(--navbar-height);
+    margin: calc(var(--navbar-height) - 3.75rem) 0 0 1rem;
+
+    & button {
+      font-size: 2rem;
+      color: var(--color-primary);
+      background: none;
+      border: none;
+    }
+  }
+
+  .Navlinks {
+    display: none;
   }
 }

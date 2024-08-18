@@ -1,5 +1,13 @@
 .Footer {
+  position: relative;
+  bottom: 0;
+
+  overflow: hidden;
+
+  height: var(--footer-height);
+
   text-align: center;
+
   background-color: var(--color-background);
   background-image: linear-gradient(
     to bottom,

@@ -71,7 +71,8 @@
 }
 
 .revision {
-  margin: .5em 2em 0 0;
+  margin: 0.5em 2em 0 0;
+  font-size: 0.75em;
   text-align: end;
 }
 

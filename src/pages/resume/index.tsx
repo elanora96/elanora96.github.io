@@ -13,8 +13,8 @@ const lastRevised = dayjs('2024-08-18');
 const Resume: FCCRoute = () => {
   return (
     <main className={styles.Resume}>
-      <span className={styles.revision}>
-        Last Revised: {lastRevised.format('MMMM Do 2024')}
+      <span className={`${styles.revision} ${styles.meta}`}>
+        <i>Last Revised: {lastRevised.format('MMMM Do 2024')}</i>
       </span>
       <Masthead {...resume.basics} />
       <HistorySection name="Work Experience" history={resume.work} />
