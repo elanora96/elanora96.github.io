@@ -15,6 +15,15 @@ const Navbar: FC<NavbarProps> = ({
   repoUrl = (/https?:\/\/[^\s]+/.exec(repository.url) ?? [''])[0],
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuClosing, setMenuClosing] = useState(false);
+
+  const handleClose = () => {
+    setMenuClosing(true);
+    setTimeout(() => {
+      setMenuClosing(false);
+      setMenuOpen(false);
+    }, 300);
+  };
 
   return (
     <div className={styles.Navbar}>
@@ -22,7 +31,11 @@ const Navbar: FC<NavbarProps> = ({
         <span className={styles.menu}>
           <button
             onClick={() => {
-              setMenuOpen(!menuOpen);
+              if (menuOpen) {
+                handleClose();
+              } else {
+                setMenuOpen(true);
+              }
             }}
           >
             ☰
@@ -33,9 +46,16 @@ const Navbar: FC<NavbarProps> = ({
         </Link>
       </span>
       <span
-        className={`${styles.Navlinks} ${menuOpen ? styles.open : ''}`}
+        className={[
+          styles.Navlinks,
+          menuOpen ? styles.open : '',
+          menuClosing ? styles.closing : '',
+        ].join(' ')}
         onClick={({ target }) => {
-          if (target.tagName === 'A') setMenuOpen(false);
+          if (menuOpen) {
+            const el = target as HTMLElement;
+            if (el.tagName === 'A') handleClose();
+          }
         }}
       >
         <Link to={RouteManager.makeURL('home')}>Home</Link>{' '}
