@@ -6,13 +6,14 @@
 
   height: var(--footer-height);
 
+  color: var(--color-primary);
   text-align: center;
 
   background-color: var(--color-background);
   background-image: linear-gradient(
     to top,
-    color-mix(in srgb, var(--color-accent) 20%, transparent),
-    color-mix(in srgb, var(--color-accent) 0%, transparent)
+    color-mix(in srgb, var(--color-dimmed) 20%, transparent),
+    color-mix(in srgb, var(--color-dimmed) 0%, transparent)
   );
 
   & strong {
