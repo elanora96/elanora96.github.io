@@ -16,6 +16,10 @@ const routes: TRouteObject[] = [
         path: RouteManager.path('resume'),
         lazy: () => import('@pages/resume'),
       },
+      {
+        path: RouteManager.path('originalHome'),
+        lazy: () => import('@pages/original-home'),
+      },
     ],
   },
 ];

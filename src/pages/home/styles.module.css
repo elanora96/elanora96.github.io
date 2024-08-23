@@ -1,40 +1,69 @@
-@font-face {
-  font-family: 'Romanum Est';
-  src: url('../../../public/assets/fonts/RomanumEst.ttf') format('truetype');
-}
-
-.main {
+.Home {
   display: flex;
   flex-direction: column;
-  align-items: center;
 
-  width: 100%;
-  padding-bottom: var(--footer-height);
+  min-height: calc(100dvh - var(--navbar-height) - var(--footer-height));
+  padding: 1rem;
 
-  font-size: 2rem;
+  color: var(--color-primary);
 
-  background: black;
+  background-color: var(--color-background);
 
-  img {
-    max-width: 100%;
-    height: 65dvh;
+  & .Intro {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1em;
+
+    margin: 2.5%;
+    padding: 2.5%;
+
+    background-color: color-mix(
+      in srgb,
+      var(--color-background),
+      var(--color-secondary)
+    );
+    border: 0.5em solid var(--color-secondary);
+    border-radius: 1%;
+
+    & .IntroImg {
+      font-size: 5rem;
+      text-align: center;
+    }
+
+    & .IntroText {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: right;
+    }
   }
 
-  audio {
-    display: block;
-    width: 100%;
-    height: 100px;
+  & .Sitemap {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    place-self: center;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+    }
   }
 
-  .coolText {
-    font-family: 'Romanum Est', 'Times New Roman', Times, serif;
-    font-size: 5rem;
-    color: white;
-    text-align: center;
-  }
+  & .Here {
+    --here-text: ' <––(You are here!)';
+    --here-text-size: 0.75em;
 
-  .ramble {
-    color: white;
-    text-align: center;
+    padding-left: calc(calc(17.75 / 2) * var(--here-text-size));
+
+    &::after {
+      content: var(--here-text);
+
+      font-size: var(--here-text-size);
+      color: var(--color-secondary);
+      text-decoration: none;
+      white-space: nowrap;
+    }
   }
 }

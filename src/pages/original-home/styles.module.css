@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Romanum Est';
+  src: url('../../../public/assets/fonts/RomanumEst.ttf') format('truetype');
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  padding-bottom: var(--footer-height);
+
+  font-size: 2rem;
+
+  background: black;
+
+  img {
+    max-width: 100%;
+    height: 65dvh;
+  }
+
+  audio {
+    display: block;
+    width: 100%;
+    height: 100px;
+  }
+
+  .coolText {
+    font-family: 'Romanum Est', 'Times New Roman', Times, serif;
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+  }
+
+  .ramble {
+    color: white;
+    text-align: center;
+  }
+}

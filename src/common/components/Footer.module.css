@@ -10,9 +10,9 @@
 
   background-color: var(--color-background);
   background-image: linear-gradient(
-    to bottom,
-    rgb(1 0 0 / 20%),
-    rgb(0 0 0 / 0%)
+    to top,
+    color-mix(in srgb, var(--color-accent) 20%, transparent),
+    color-mix(in srgb, var(--color-accent) 0%, transparent)
   );
 
   & strong {

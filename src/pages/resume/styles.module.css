@@ -10,7 +10,9 @@
     margin-left: 0 !important;
     padding: 0.2rem 0.6rem;
 
-    background: var(--color-dimmed);
+    color: var(--color-primary-dark);
+
+    background: var(--color-accent);
     border-radius: 0.2rem;
 
     &::after {
@@ -18,16 +20,16 @@
 
       position: absolute;
       z-index: 999;
-      top: -0.25em;
-      left: -0.25em;
+      top: 0;
+      left: 0;
 
-      width: calc(100% + 0.5em);
-      height: calc(100% + 0.5em);
+      width: 100%;
+      height: 100%;
 
       background-image: linear-gradient(
-        to bottom,
-        rgb(0 0 0 / 0%),
-        rgb(1 0 0 / 15%)
+        to top,
+        color-mix(in srgb, var(--color-primary) 15%, transparent),
+        color-mix(in srgb, var(--color-primary) 0%, transparent)
       );
       border-radius: inherit;
     }
@@ -85,10 +87,10 @@
 
   text-align: center;
 
-  background-image: linear-gradient(
-    to bottom,
-    rgb(0 0 0 / 0%),
-    rgb(1 0 0 / 15%)
+  background-image: radial-gradient(
+    ellipse 100% 40%,
+    color-mix(in srgb, var(--color-dimmed) 20%, transparent),
+    color-mix(in srgb, var(--color-dimmed) 0%, transparent)
   );
 
   & ul {

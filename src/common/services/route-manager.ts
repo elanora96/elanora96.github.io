@@ -8,6 +8,9 @@ const manager = new Manager({
     resume: {
       url: '/resume',
     },
+    originalHome: {
+      url: '/original-home',
+    },
   },
 });
 
