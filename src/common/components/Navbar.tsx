@@ -26,7 +26,7 @@ const Navbar: FC<NavbarProps> = ({
   };
 
   return (
-    <div className={styles.Navbar}>
+    <header className={styles.Navbar}>
       <span className={styles.NavlogoContainer}>
         <span className={styles.menu}>
           <button
@@ -59,10 +59,11 @@ const Navbar: FC<NavbarProps> = ({
         }}
       >
         <Link to={RouteManager.makeURL('home')}>Home</Link>{' '}
+        <Link to={RouteManager.makeURL('blog')}>Blog</Link>{' '}
         <Link to={RouteManager.makeURL('resume')}>Resume</Link>{' '}
         {repoUrl ? <a href={repoUrl}>Source</a> : ''}
       </span>
-    </div>
+    </header>
   );
 };
 

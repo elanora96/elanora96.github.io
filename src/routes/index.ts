@@ -20,6 +20,16 @@ const routes: TRouteObject[] = [
         path: RouteManager.path('originalHome'),
         lazy: () => import('@pages/original-home'),
       },
+      {
+        path: RouteManager.path('blog'),
+        children: [
+          { index: true, lazy: () => import('@pages/blog') },
+          {
+            path: RouteManager.path('blog.post'),
+            lazy: () => import('@pages/blog'),
+          },
+        ],
+      },
     ],
   },
 ];

@@ -20,4 +20,11 @@
     font-size: 1.45em;
     font-stretch: extra-condensed;
   }
+
+  @media print {
+    .Footer {
+      position: static;
+      overflow: unset;
+    }
+  }
 }

@@ -11,6 +11,15 @@ const manager = new Manager({
     originalHome: {
       url: '/original-home',
     },
+    blog: {
+      url: '/blog',
+      children: {
+        post: {
+          url: '/:post',
+          params: { post: '' },
+        },
+      },
+    },
   },
 });
 

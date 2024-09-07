@@ -50,7 +50,7 @@ const HistorySection: FC<HistorySectionProps> = (props) => {
             <p>{hist.summary}</p>
             {hist.highlights ? (
               <>
-                <h5>Highlights</h5>
+                {props.name !== 'Education' ? <h5>Highlights</h5> : ''}
                 <ul>
                   {hist.highlights.map((course, i) => (
                     <li key={i}>

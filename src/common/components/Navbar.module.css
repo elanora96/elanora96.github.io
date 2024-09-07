@@ -138,7 +138,7 @@
   }
 }
 
-@container navbar (max-width: 550px) {
+@container navbar (max-width: 600px) {
   .NavlogoContainer {
     width: 100%;
     text-align: center;
@@ -166,5 +166,15 @@
 
   .Navlinks {
     display: none;
+  }
+}
+
+@media print {
+  .menu {
+    display: none;
+  }
+
+  .Navbar {
+    position: static;
   }
 }

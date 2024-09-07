@@ -90,6 +90,11 @@
     --color-secondary: var(--color-secondary-light);
     --color-accent: var(--color-accent-light);
   }
+
+  @media print {
+    --navbar-height: 3rem;
+    --footer-height: 1.5rem;
+  }
 }
 
 * {

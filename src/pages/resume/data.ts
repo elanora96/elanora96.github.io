@@ -62,14 +62,15 @@ export const resume = {
     {
       organization: "Chef Rick's Ultimately Fine Foods Inc.",
       location: 'Orcutt, CA',
-      area: 'Caterer',
-      url: 'https://www.chefricks.com/',
+      area: 'Caterer & Digital Campaign Manager',
+      url: 'https://supportchefricks.com',
       startDate: '2010-03',
       endDate: '2021-11',
       summary:
         'Responsible for onsite catering setup, logistics, and breakdown for various events. Held various positions including cashier, waiter, prep cook, and information technologist.',
       highlights: [
         'Collaborated with onsite teams of upwards of 20 staff members to supply food for events with up to 800 attendees.',
+        'Created a call to action website in a nostalgic style and led a successful digital campaign utilizing web development and social media strategies to increase engagement and support for the restaurant.',
       ],
     },
     {
@@ -110,7 +111,7 @@ export const resume = {
       url: 'https://pdxresources.netlify.app/',
       startDate: '2022-10',
       summary:
-        'I help run a growing—but tight knit—local Discord server that invites all queer people to join. As of June 3rd, 2024, we have 60+ members of various backgrounds and identities. I feel a very strong sense of wanting to serve this community. I spend much of my free time with members, mentoring or just being a friend. Group meetups can be almost anything and are at least monthly, sometimes multiple times a week!',
+        'I help run a growing—but tight-knit—local Discord server that invites all queer people to join. As of June 3rd, 2024, we have 60+ members of various backgrounds and identities. I feel a very strong sense of wanting to serve this community. I spend much of my free time with members, mentoring or just being a friend. Group meetups can be almost anything and are at least monthly, sometimes multiple times a week!',
     },
     {
       organization: 'Marian Medical Center',

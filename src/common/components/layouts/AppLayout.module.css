@@ -1,3 +1,7 @@
 .Out {
   margin-top: var(--navbar-height);
+
+@media print {
+    margin: 0
+}
 }
