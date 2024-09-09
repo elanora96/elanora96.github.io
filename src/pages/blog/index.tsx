@@ -1,36 +1,11 @@
 import type { FCCRoute } from '@lomray/vite-ssr-boost/interfaces/fc-route';
 import RouteManager from '@services/route-manager';
 import dayjs from 'dayjs';
-import {
-  type ComponentType,
-  type FC,
-  type LazyExoticComponent,
-  Suspense,
-  lazy,
-} from 'react';
+import { type FC, Suspense } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styles from './styles.module.css';
 
-interface BlogPost {
-  postName: string;
-  date: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  blogPostComponent: LazyExoticComponent<ComponentType<any>>;
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    postName: 'This is a blog post',
-    date: '2024-09-02 14:35:00-8:00',
-    blogPostComponent: lazy(() =>
-      import('./posts/test.mdx')
-        .then((blogPostComponent) => blogPostComponent)
-        .catch((e: unknown) => {
-          throw e;
-        }),
-    ),
-  },
-];
+import { type BlogPost, blogPosts } from './blogposts';
 
 const BlogTOC: FC = () => {
   const dateAscSort = (a: BlogPost, b: BlogPost) =>
