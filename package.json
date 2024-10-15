@@ -1,6 +1,6 @@
 {
   "name": "elanora96.github.io",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "description": "My personal site",
   "type": "module",
   "scripts": {
@@ -46,7 +46,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.0",
-    "eslint-plugin-react-hooks": "^5.1.0-rc-1460d67c-20241003",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "husky": "^9.1.4",
