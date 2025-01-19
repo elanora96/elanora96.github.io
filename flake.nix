@@ -19,7 +19,7 @@
         pname = name;
         src = ./.;
         pkgs = import nixpkgs { inherit system; };
-        node = pkgs.nodejs_22;
+        node = pkgs.nodejs_23;
 
         meta = with pkgs; {
           description = "elanora.lol - elanora96's personal site";
@@ -35,14 +35,14 @@
       in
       {
         packages = {
-          frontend = pkgs.buildNpmPackage rec {
+          frontend = pkgs.buildNpmPackage {
             inherit
               name
               pname
               src
               meta
               ;
-            npmDepsHash = "sha256-A9HCN3/F0cDdSKDhoV45zoS+MXm956ruyhemMFe6ABo=";
+            npmDepsHash = "sha256-LkP9YXNJFQvylOzGNe2ApPkhEC87U1jCV8TqBdXaUgQ=";
             buildInputs = [ node ];
             npmBuildScript = "build";
             installPhase = ''
@@ -62,6 +62,9 @@
           ];
 
           shellHook = ''
+            # Node 23 includes some annoying ExperimentalWarnings for require(esm)
+            export NODE_OPTIONS="--disable-warning=ExperimentalWarning"
+
             confirm() {
               while true; do
                 read -rp "[y/n]: " yn
@@ -72,6 +75,8 @@
                 esac
               done
             }
+
+            # Now we're hacking
             cat ./banner.txt
 
             if [ ! -d "./node_modules" ]; then
