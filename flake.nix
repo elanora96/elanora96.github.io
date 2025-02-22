@@ -42,12 +42,12 @@
               src
               meta
               ;
-            npmDepsHash = "sha256-LkP9YXNJFQvylOzGNe2ApPkhEC87U1jCV8TqBdXaUgQ=";
+            npmDepsHash = "sha256-dllMecbPJjR9LQWHoCKZBS3kathtpQWowImtXp4JjcA=";
             buildInputs = [ node ];
             npmBuildScript = "build";
             installPhase = ''
               mkdir -p $out
-              cp -r ./dist $out/dist
+              cp -r ./build $out/build
             '';
           };
 
