@@ -34,7 +34,11 @@ export const SiteMap: FC<SiteMapProps> = (props) => {
       <h2>Sitemap: </h2>
       <h3>Active: </h3>
       {Object.values(props.active).map(({ url, label }) => (
-        <Link className={url === 'home' ? styles.Here : ''} key={url} to={url}>
+        <Link
+          className={label === 'Home' ? styles.Here : ''}
+          key={url}
+          to={url}
+        >
           {label}
         </Link>
       ))}
@@ -51,11 +55,11 @@ export const SiteMap: FC<SiteMapProps> = (props) => {
 const Home = () => {
   const routes: SiteMapProps = {
     active: [
-      { url: 'home', label: 'Home' },
-      { url: 'blog', label: 'Blog' },
-      { url: 'resume', label: 'Resume' },
+      { url: '/', label: 'Home' },
+      { url: '/blog', label: 'Blog' },
+      { url: '/resume', label: 'Resume' },
     ],
-    archive: [{ url: 'originalHome', label: 'Original Homepage' }],
+    archive: [{ url: '/originalHome', label: 'Original Homepage' }],
   };
 
   return (
