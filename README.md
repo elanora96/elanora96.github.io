@@ -7,7 +7,6 @@
 ![React Router](https://img.shields.io/badge/Routed_w/-React_Router-blue?logo=reactrouter&color=CA4245)
 ![Vite](https://img.shields.io/badge/Built_w/-Vite-blue?logo=vite&color=646CFF)
 ![CSS Modules](https://img.shields.io/badge/Styled_w/-CSS_Modules-blue?logo=cssmodules&color=000000)
-
 ![EditorConfig](https://img.shields.io/badge/Made_sane_w/-EditorConfig-blue?logo=editorconfig&color=FEFEFE)
 ![ESLint](https://img.shields.io/badge/Kept_sane_w/-ESLint-blue?logo=eslint&color=4B32C3)
 ![Prettier](https://img.shields.io/badge/Kept_pretty_with-Prettier-blue?logo=prettier&color=F7B93E)
