@@ -1,10 +1,4 @@
-import {
-  type RouteConfig,
-  index,
-  layout,
-  route,
-} from '@react-router/dev/routes';
-
+import { type RouteConfig, index, route } from '@react-router/dev/routes';
 import { blogPosts } from './pages/blog/blogposts';
 
 const blogPostNestedRoutes = blogPosts.map(({ postName, blogPostIndexPath }) =>
@@ -12,13 +6,11 @@ const blogPostNestedRoutes = blogPosts.map(({ postName, blogPostIndexPath }) =>
 );
 
 export default [
-  layout('common/components/layouts/AppLayout.tsx', [
-    index('pages/home/index.tsx'),
-    route('resume', 'pages/resume/index.tsx'),
-    route('originalHome', 'pages/original-home/index.tsx'),
+  index('pages/home/index.tsx'),
+  route('resume', 'pages/resume/index.tsx'),
+  route('originalHome', 'pages/original-home/index.tsx'),
 
-    route('blog', 'pages/blog/index.tsx', blogPostNestedRoutes),
+  route('blog', 'pages/blog/index.tsx', blogPostNestedRoutes),
 
-    route('*?', 'pages/catchall/catchall.mdx'),
-  ]),
+  route('*?', 'pages/catchall/catchall.mdx'),
 ] satisfies RouteConfig;

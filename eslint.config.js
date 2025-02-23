@@ -12,9 +12,9 @@ export default tseslint.config(
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   react.configs.flat.recommended,
-  { ignores: ['dist/**/*'] },
+  { ignores: ['build/**/*'] },
   {
-    files: ['**/*.{js,ts,tsx}'],
+    files: ['**/*.{js,ts,tsx,mdx}'],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {

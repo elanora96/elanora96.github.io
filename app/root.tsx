@@ -1,4 +1,6 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import Footer from '@components/Footer';
+import Navbar from '@components/Navbar';
 
 import type { Route } from './+types/root';
 
@@ -58,5 +60,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <>
+      <Navbar />
+      <main id="outlet">
+        <Outlet />
+      </main>
+      <Footer />
+    </>
+  );
 }

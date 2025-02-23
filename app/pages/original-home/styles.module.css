@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Romanum Est';
-  src: url('../../../public/assets/fonts/RomanumEst.ttf') format('truetype');
+  src: url('../../../assets/fonts/RomanumEst.ttf') format('truetype');
 }
 
 .main {
