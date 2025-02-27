@@ -11,6 +11,7 @@ export default [
   route('originalHome', 'pages/original-home/index.tsx'),
 
   route('blog', 'pages/blog/index.tsx', blogPostNestedRoutes),
+  route('blog/rss.xml', '[rss.xml].tsx'),
 
   route('*?', 'pages/catchall/catchall.mdx'),
 ] satisfies RouteConfig;

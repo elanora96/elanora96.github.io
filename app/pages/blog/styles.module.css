@@ -16,6 +16,18 @@
   }
 }
 
+.RSS {
+  padding: 0.25rem;
+  border: 0.175rem solid var(--color-orange0-dark);
+  border-radius: 5%;
+  background-color: var(--color-orange1-dark);
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
 .BlogTOC {
   display: flex;
   flex-direction: column;

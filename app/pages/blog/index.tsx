@@ -29,8 +29,8 @@ const BlogTableOfContents = () => {
         </thead>
         <tbody>
           {blogPosts.sort(dateAscSort).map(({ date, postName }) => (
-            <tr key={date}>
-              <td>{dayjs(date).format('YYYY-MM-DD[ at ]hh:mma')}</td>
+            <tr key={date.unix()}>
+              <td>{date.format('YYYY-MM-DD[ at ]hh:mma')}</td>
               <td>
                 <Link to={postName}>{postName}</Link>
               </td>
@@ -49,6 +49,11 @@ const Blog = () => {
         <Outlet />
       </div>
       <BlogTableOfContents />
+      <div className={styles.RSS}>
+        <Link to={'/blog/rss.xml'}>
+          <h4>Add to RSS</h4>
+        </Link>
+      </div>
     </div>
   );
 };
