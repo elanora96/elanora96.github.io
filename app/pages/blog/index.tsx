@@ -1,10 +1,9 @@
 import dayjs from 'dayjs';
 import { Link, Outlet } from 'react-router';
-import styles from './styles.module.css';
-
-import { type BlogPost, blogPosts } from './blogposts';
-
 import type { Route } from './+types/index';
+import { type BlogPost, blogPosts } from './blogposts';
+import styles from './styles.module.css';
+import config from '../../../react-router.config';
 
 export function meta(metaArgs: Route.MetaArgs) {
   const { location } = metaArgs;
@@ -42,6 +41,14 @@ const BlogTableOfContents = () => {
   );
 };
 
+const RSS = () => (
+  <div className={styles.RSS}>
+    <Link to={'/blog/rss.xml'}>
+      <h4>Add to RSS</h4>
+    </Link>
+  </div>
+);
+
 const Blog = () => {
   return (
     <div className={styles.BlogContainer}>
@@ -49,11 +56,7 @@ const Blog = () => {
         <Outlet />
       </div>
       <BlogTableOfContents />
-      <div className={styles.RSS}>
-        <Link to={'/blog/rss.xml'}>
-          <h4>Add to RSS</h4>
-        </Link>
-      </div>
+      {config.ssr ? <RSS /> : ''}
     </div>
   );
 };
