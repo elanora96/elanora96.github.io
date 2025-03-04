@@ -50,9 +50,7 @@
                 src
                 meta
                 ;
-              npmDeps = importNpmLock {
-                npmRoot = src;
-              };
+              npmDeps = importNpmLock { npmRoot = src; };
               npmConfigHook = importNpmLock.npmConfigHook;
               buildInputs = [ nodejs ];
               installPhase = ''
@@ -65,6 +63,9 @@
           };
 
           devShells.default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              nixfmt-rfc-style
+            ];
             packages = [
               importNpmLock.hooks.linkNodeModulesHook
               nodejs

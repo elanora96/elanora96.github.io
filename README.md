@@ -29,6 +29,20 @@ Currently (2024-10-14)\*, hosted on GH pages, this site is an SSR ready Vite pow
 
 ### Manual
 
-- Install dependencies as listed in `flake.nix` (just nodejs v23 for now, but if I forget to update the README check that)
-- Run `npm install` to install node dependencies
+- Install dependencies as listed in `flake.nix` (just Nodejs v23 for now, but if I forget to update the README check that)
+- Run `npm ci` to install node dependencies following `package-lock.json`
 - Run `npm run dev` for a development server with HMR
+
+## Building
+
+### Recommended (Nix Flake)
+
+- Run `nix build` to build `packages#frontend` as the default package from `flake.nix`
+  - The site will be available under `./result/build` 😎❄️
+
+### Manual
+
+- Install dependencies as listed in `flake.nix` (just Nodejs v23 for now, but if I forget to update the README check that)
+- Run `npm ci` to install node dependencies following `package-lock.json`
+- Run `npm run build`
+  - The site will be available under `./build`
