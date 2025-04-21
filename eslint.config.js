@@ -11,7 +11,8 @@ export default tseslint.config(
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
-  react.configs.flat.recommended,
+  react.configs.flat.recommendedTypeChecked,
+  reactHooks.configs.recommendedTypeChecked,
   { ignores: ['build/**/*'] },
   {
     files: ['**/*.{js,ts,tsx,mdx}'],
@@ -37,7 +38,7 @@ export default tseslint.config(
       globals: globals.browser,
     },
     plugins: {
-      'react-hooks': reactHooks,
+      // 'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
     },
     rules: {
