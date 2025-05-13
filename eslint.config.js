@@ -8,11 +8,12 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export default tseslint.config(
   eslint.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
-  ...tseslint.configs.strictTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
-  react.configs.flat.recommendedTypeChecked,
-  reactHooks.configs.recommendedTypeChecked,
+  tseslint.configs.recommendedTypeChecked,
+  tseslint.configs.strictTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
+  react.configs.flat.recommended,
+  react.configs.flat['jsx-runtime'],
+  reactHooks.configs['recommended-latest'],
   { ignores: ['build/**/*'] },
   {
     files: ['**/*.{js,ts,tsx,mdx}'],
@@ -35,10 +36,9 @@ export default tseslint.config(
         },
         jsxPragma: null,
       },
-      globals: globals.browser,
+      globals: { ...globals.browser },
     },
     plugins: {
-      // 'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
     },
     rules: {

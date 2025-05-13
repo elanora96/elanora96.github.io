@@ -1,7 +1,8 @@
 import Marquee from '@components/Marquee';
+import { type FC } from 'react';
 import styles from './styles.module.css';
 
-const Home = () => {
+const Home: FC = () => {
   const dateDiff = (date1: Date, date2: Date) =>
     Math.floor((date2.getTime() - date1.getTime()) / (1000 * 60 * 60 * 24));
 

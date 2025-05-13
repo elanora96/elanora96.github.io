@@ -27,7 +27,7 @@
           src = ./.;
           buildNpmPackage = pkgs.buildNpmPackage;
           importNpmLock = pkgs.importNpmLock;
-          nodejs = pkgs.nodejs_23;
+          nodejs = pkgs.nodejs_latest;
 
           meta = {
             description = "elanora.lol - elanora96's personal site";

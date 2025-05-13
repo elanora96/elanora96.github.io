@@ -64,7 +64,7 @@ export const resume: Resume = {
     label: 'Software Engineer',
     email: 'resume@elanora.lol',
     summary:
-      'Elanora is a software engineer from the coastal farming valley of Santa Maria, CA. She has education and experience in Fullstack Web Development and several other domains. She loves practical problem solving and learning new techniques to best approach an issue. She excels at quick and accurate assessments of situations, and bringing people together to collaborate effectively. With the right resources and people to work with, no problem feels too big.',
+      'Versatile and impact-driven web developer with a strong foundation in system administration, DevOps, and user-centered design. Blending frontend craft with backend reliability, I build scalable sites, apps, and tools that empower small teams and real people. Adept in Linux, Nix, Python, Rust, and the modern web stack (React, Vite, TypeScript), with experience leading high-stakes migrations and crafting smooth CI/CD pipelines. After pivoting into tech via self-directed learning and practical freelancing, I’m now seeking a full-time engineering role where I can contribute immediately while continuing to grow.',
     location: {
       city: 'Portland',
       countryCode: 'US',

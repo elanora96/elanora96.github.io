@@ -20,6 +20,7 @@ const timeLine = {
 };
 
 const units = {
+  MONTH: 'M',
   WEEK: 'ww',
   DAY: 'D',
   HOUR: 'H',
@@ -40,12 +41,14 @@ export const Poster: FC<PosterProps> = (props) => {
   const [tTill, setTTill] = useState(diff);
 
   useEffect(() => {
-    const intrvl = setInterval(() => {
-      setTTill(diff());
-    }, 1000);
-    return () => {
-      clearInterval(intrvl);
-    };
+    if (diff().asSeconds() > 0) {
+      const intrvl = setInterval(() => {
+        setTTill(diff());
+      }, 1000);
+      return () => {
+        clearInterval(intrvl);
+      };
+    }
   }, [diff]);
 
   return (
