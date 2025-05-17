@@ -4,7 +4,7 @@
     "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "types": ["node", "vite/client"],
-    "typeRoots": ["./node_modules/@types", "app/common/types"],
+    "typeRoots": ["./node_modules/@types", "app/types"],
     "module": "ES2022",
     "skipLibCheck": true,
     "rootDirs": [".", "./.react-router/types"],

@@ -1,0 +1,24 @@
+.ProjectContainer {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+
+  min-height: calc(100dvh - var(--navbar-height) - var(--footer-height));
+
+  color: var(--color-primary);
+
+  background-color: var(--color-background);
+
+  .ProjectNav {
+    .ProjectCard {
+      width: 30dvw;
+      margin: 4rem;
+      background-color: var(--color-accent);
+
+      a {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+    }
+  }
+}

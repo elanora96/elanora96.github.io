@@ -58,7 +58,7 @@ const Navbar: FC<NavbarProps> = ({
         }}
       >
         <Link to="/">Home</Link> <Link to="/blog">Blog</Link>{' '}
-        <Link to="/resume">Resume</Link>{' '}
+        <Link to="/projects">Projects</Link> <Link to="/resume">Resume</Link>{' '}
         {repoUrl ? <a href={repoUrl}>Source</a> : ''}
       </span>
     </header>

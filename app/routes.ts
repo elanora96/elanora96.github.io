@@ -1,10 +1,7 @@
 import { type RouteConfig, index, route } from '@react-router/dev/routes';
-import { blogPosts } from './pages/blog/blogposts';
+import { blogPostCollection } from './pages/blog/blogposts';
+import { projectPostCollection } from './pages/projects/projects';
 import config from '../react-router.config';
-
-const blogPostNestedRoutes = blogPosts.map(({ postName, blogPostIndexPath }) =>
-  route(postName, blogPostIndexPath),
-);
 
 export const ssrOnlyRoutes: RouteConfig = [
   route('blog/rss.xml', '[rss.xml].tsx'),
@@ -15,7 +12,12 @@ export const clientRoutes: RouteConfig = [
   route('resume', 'pages/resume/index.tsx'),
   route('originalHome', 'pages/original-home/index.tsx'),
 
-  route('blog', 'pages/blog/index.tsx', blogPostNestedRoutes),
+  route('blog', 'pages/blog/index.tsx', blogPostCollection.getNestedRoutes()),
+  route(
+    'projects',
+    'pages/projects/index.tsx',
+    projectPostCollection.getNestedRoutes(),
+  ),
 
   route('*?', 'pages/catchall/catchall.mdx'),
 ];

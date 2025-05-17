@@ -1,9 +1,11 @@
+import { type BlogPost } from 'posting';
 import dayjs from 'dayjs';
+import { type FC } from 'react';
 import { Link, Outlet } from 'react-router';
-import type { Route } from './+types/index';
-import { type BlogPost, blogPosts } from './blogposts';
-import styles from './styles.module.css';
 import config from '../../../react-router.config';
+import type { Route } from './+types/index';
+import { blogPosts } from './blogposts';
+import styles from './styles.module.css';
 
 export function meta(metaArgs: Route.MetaArgs) {
   const { location } = metaArgs;
@@ -13,7 +15,7 @@ export function meta(metaArgs: Route.MetaArgs) {
   ];
 }
 
-const BlogTableOfContents = () => {
+const BlogTableOfContents: FC = () => {
   const dateAscSort = (a: BlogPost, b: BlogPost) =>
     dayjs(b.date).unix() - dayjs(a.date).unix();
   return (
@@ -41,7 +43,7 @@ const BlogTableOfContents = () => {
   );
 };
 
-const RSS = () => (
+const RSS: FC = () => (
   <div className={styles.RSS}>
     <Link to={'/blog/rss.xml'}>
       <h4>Add to RSS</h4>
@@ -49,7 +51,7 @@ const RSS = () => (
   </div>
 );
 
-const Blog = () => {
+const Blog: FC = () => {
   return (
     <div className={styles.BlogContainer}>
       <div className={styles.BlogPost}>

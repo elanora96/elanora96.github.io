@@ -14,7 +14,7 @@ export default tseslint.config(
   react.configs.flat.recommended,
   react.configs.flat['jsx-runtime'],
   reactHooks.configs['recommended-latest'],
-  { ignores: ['build/**/*'] },
+  { ignores: ['build/**/*', '.react-router/**/*'] },
   {
     files: ['**/*.{js,ts,tsx,mdx}'],
     languageOptions: {
@@ -26,7 +26,6 @@ export default tseslint.config(
             'eslint.config.js',
             'lint-staged.config.js',
             'prettier.config.js',
-            'react-router.config.ts',
             'stylelint.config.js',
           ],
         },
@@ -35,6 +34,7 @@ export default tseslint.config(
           jsx: true,
         },
         jsxPragma: null,
+        extraFileExtensions: ['.mdx'],
       },
       globals: { ...globals.browser },
     },

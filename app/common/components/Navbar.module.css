@@ -143,7 +143,7 @@
   }
 }
 
-@container navbar (max-width: 600px) {
+@container navbar (max-width: 680px) {
   .NavlogoContainer {
     width: 100%;
     text-align: center;
