@@ -19,21 +19,22 @@ export const projects: Project[] = [
     externalLink: 'https://github.com/elanora96/qremote',
     tags: ['rust', 'nix', 'crossplatform'],
   },
-  {
-    postName: 'elanora.lol',
-    date: dayjs(),
-    postIndexPath: 'pages/projects/projects/qremote/qremote.mdx',
-    description: '',
-    externalLink: 'https://github.com/elanora96/qremote',
-    tags: ['rust', 'nix', 'crossplatform'],
-  },
+  // {
+  //   postName: 'elanora.lol',
+  //   date: dayjs(),
+  //   postIndexPath: 'pages/projects/projects/qremote/qremote.mdx',
+  //   description: '',
+  //   externalLink: 'https://github.com/elanora96/qremote',
+  //   tags: ['rust', 'nix', 'crossplatform'],
+  // },
   {
     postName: 'msn-show-source',
     date: dayjs(),
-    postIndexPath: 'pages/projects/projects/qremote/qremote.mdx',
+    postIndexPath:
+      'pages/projects/projects/msn-show-source/msn-show-source.mdx',
     description: '',
-    externalLink: 'https://github.com/elanora96/qremote',
-    tags: ['rust', 'nix', 'crossplatform'],
+    externalLink: 'https://github.com/elanora96/msn-show-source',
+    tags: ['typescript', 'javascript', 'userscript', 'greasemonkey'],
   },
 ];
 

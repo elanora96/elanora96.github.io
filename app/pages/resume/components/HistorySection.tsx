@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from '../styles.module.css';
 import dayjs from 'dayjs';
-import type { Experience } from '../data';
+import type { Experience } from 'resume';
 
 interface HistorySectionProps {
   name: string;

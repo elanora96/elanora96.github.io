@@ -25,8 +25,8 @@
           name = "elanora.lol";
           pname = name;
           src = ./.;
-          buildNpmPackage = pkgs.buildNpmPackage;
-          importNpmLock = pkgs.importNpmLock;
+          inherit (pkgs) buildNpmPackage;
+          inherit (pkgs) importNpmLock;
           nodejs = pkgs.nodejs_latest;
 
           meta = {
@@ -51,7 +51,7 @@
                 meta
                 ;
               npmDeps = importNpmLock { npmRoot = src; };
-              npmConfigHook = importNpmLock.npmConfigHook;
+              inherit (importNpmLock) npmConfigHook;
               buildInputs = [ nodejs ];
               installPhase = ''
                 mkdir -p $out

@@ -13,6 +13,9 @@
     .ProjectCard {
       width: 30dvw;
       margin: 4rem;
+      border: 0.25em solid var(--color-accent);
+      border-radius: 2.5%;
+
       background-color: var(--color-accent);
 
       a {

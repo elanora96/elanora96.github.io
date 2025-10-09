@@ -1,70 +1,14 @@
-export interface Profile {
-  network: string;
-  username?: string;
-  url: string;
-}
-
-export interface Location {
-  city: string;
-  countryCode: string;
-  region: string;
-}
-
-export interface Basics {
-  name: string;
-  image?: string;
-  pronouns?: string[];
-  label: string;
-  email: string;
-  summary: string;
-  location: Location;
-  profiles: Profile[];
-}
-
-export interface Experience {
-  organization: string;
-  location: string | Location;
-  area: string;
-  url?: string;
-  startDate: string;
-  endDate?: string;
-  summary?: string;
-  highlights?: string[];
-}
-
-export interface Skill {
-  name: string;
-  keywords?: string[];
-  summary?: string;
-}
-
-export interface Language {
-  language: string;
-  fluency: string;
-}
-
-export interface Resume {
-  revisionDate: string;
-  basics: Basics;
-  work: Experience[];
-  volunteer?: Experience[];
-  education?: Experience[];
-  awards?: string[];
-  publications?: string[];
-  skills?: Skill[];
-  languages?: Language[];
-  interests?: Skill[];
-}
+import { type Resume } from 'resume';
 
 export const resume: Resume = {
-  revisionDate: '2024-08-18',
+  revisionDate: '2025-09-25',
   basics: {
     name: 'Elanora Manson',
     pronouns: ['She', 'Her', 'Hers'],
     label: 'Software Engineer',
     email: 'resume@elanora.lol',
     summary:
-      'Versatile and impact-driven web developer with a strong foundation in system administration, DevOps, and user-centered design. Blending frontend craft with backend reliability, I build scalable sites, apps, and tools that empower small teams and real people. Adept in Linux, Nix, Python, Rust, and the modern web stack (React, Vite, TypeScript), with experience leading high-stakes migrations and crafting smooth CI/CD pipelines. After pivoting into tech via self-directed learning and practical freelancing, I’m now seeking a full-time engineering role where I can contribute immediately while continuing to grow.',
+      'Self-directed software engineer shipping Rust, TypeScript, and Nix-powered products after pivoting back to code in 2024. Daily open source contributor across 20+ repositories, blending systems curiosity with polished UX to deliver value fast and targeting full stack roles on teams that prize initiative.',
     location: {
       city: 'Portland',
       countryCode: 'US',
@@ -84,6 +28,22 @@ export const resume: Resume = {
     ],
   },
   work: [
+    {
+      organization: 'Independent Software Developer & Open Source Contributor',
+      location: 'Portland, OR',
+      area: 'Independent Software Developer & Open Source Contributor',
+      url: 'https://github.com/elanora96',
+      startDate: '2024-01',
+      summary:
+        'Building and maintaining open source products that showcase modern full stack skills.',
+      highlights: [
+        'Built qremote, a cross-platform remote control app in Rust packaged for Linux (Nix), macOS, and Windows with zero-setup workflows.',
+        'Maintains multiple opinionated Nix Flake templates for Rust, NodeJS, and other projects.',
+        'Maintains elanora.lol as a living demo of accessibility-minded React, TypeScript, Vite, MDX, and Nix-based deployment pipelines.',
+        'Contributed to @nix-community/home-manager and 20+ repositories, adding automation, documentation, and reviews throughout 2024-2025.',
+        'Logged 250+ contributions in 2024 and 330+ in 2025 to date across personal and community repositories.',
+      ],
+    },
     {
       organization: 'Fresh Venture Foods',
       location: 'Santa Maria, CA',
@@ -164,6 +124,14 @@ export const resume: Resume = {
   ],
   volunteer: [
     {
+      organization: 'Bike Farm',
+      location: 'Portland, OR',
+      area: 'Volunteer',
+      url: 'https://www.bikefarm.org/',
+      startDate: '2023',
+      summary: 'A bike co-op',
+    },
+    {
       organization: 'LGBTQIA PDX',
       location: 'Portland, OR',
       area: 'Moderator/Event Organizer',
@@ -232,7 +200,7 @@ export const resume: Resume = {
     },
     {
       name: 'Other Development',
-      keywords: ['Rust', 'C', 'C++', 'Java', 'Clojure', 'Bash', 'Powershell'],
+      keywords: ['Rust', 'Nix', 'C', 'C++', 'Java', 'Bash'],
     },
     {
       name: 'Tools and Systems',
@@ -246,9 +214,7 @@ export const resume: Resume = {
         'pip',
         'Linux',
         'Windows',
-        'VSCode',
         'Neovim',
-        'JetBrains',
       ],
     },
     {
@@ -279,7 +245,7 @@ export const resume: Resume = {
     },
     {
       name: 'Pets',
-      keywords: ['Henry', 'Bear'],
+      keywords: ['Henry'],
     },
   ],
 };

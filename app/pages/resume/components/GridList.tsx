@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styles from '../styles.module.css';
-import type { Skill } from '../data';
+import type { Skill } from 'resume';
 
 interface GridListProps {
   ObjectList: Skill[];

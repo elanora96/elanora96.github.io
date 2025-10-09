@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { EmailSVG, LocationSVG, ProfileSVG } from './SVGs';
 import styles from '../styles.module.css';
-import type { Basics } from '../data';
+import type { Basics } from 'resume';
 
 const Masthead: FC<Basics> = (props) => {
   return (

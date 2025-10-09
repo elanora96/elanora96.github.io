@@ -1,7 +1,7 @@
 import { type RouteConfig, index, route } from '@react-router/dev/routes';
-import { blogPostCollection } from './pages/blog/blogposts';
-import { projectPostCollection } from './pages/projects/projects';
-import config from '../react-router.config';
+import { blogPostCollection } from './pages/blog/blogposts.ts';
+import { projectPostCollection } from './pages/projects/projects.ts';
+import config from '../react-router.config.ts';
 
 export const ssrOnlyRoutes: RouteConfig = [
   route('blog/rss.xml', '[rss.xml].tsx'),
