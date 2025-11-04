@@ -1,0 +1,82 @@
+# Using Dislocker to mount Bitlocker volumes
+
+I was having trouble finding documentation for `dislocker`
+
+A [blogpost by Linux Uprising](https://www.linuxuprising.com/2019/04/how-to-mount-bitlocker-encrypted.html) was helpful getting started for me, I'm just going to write some notes for myself on it here.
+
+I installed [`dislocker-patched`](https://aur.archlinux.org/packages/dislocker-patched) from the AUR.
+
+Specifically:
+
+```zsh
+❯ paru -Qqs dislocker | paru -Qi -
+Name            : dislocker-patched
+Version         : 0.7.3.r46.g4572dc7-9
+Description     : FUSE driver to read/write Windows BitLocker-ed volumes. Includes some
+                  patches from Issues and PRs from official Aorimn/dislocker. Added
+                  aarch64.
+Architecture    : x86_64
+URL             : https://github.com/Aorimn/dislocker
+Licenses        : GPL-2.0-or-later
+Groups          : None
+Provides        : dislocker
+Depends On      : mbedtls  fuse3  ruby
+Optional Deps   : ntfs-3g: NTFS file system support [installed]
+Required By     : None
+Optional For    : None
+Conflicts With  : dislocker
+Replaces        : None
+Installed Size  : 213.11 KiB
+Packager        : Unknown Packager
+Build Date      : Wed 24 Sep 2025 12:22:39 PM PDT
+Install Date    : Wed 24 Sep 2025 12:22:50 PM PDT
+Install Reason  : Explicitly installed
+Install Script  : No
+Validated By    : None
+```
+
+Then similar to the blogpost I made two folders, though I decided to do this in `/mnt`
+
+Also note the system I was on uses `doas` instead of `sudo`
+
+```zsh
+doas mkdir -p /mnt/bitlocker
+doas mkdir -p /mnt/bitlockermount
+```
+
+I then used `lsblk` to identify the partition I wanted to unlock. I could tell from the size easily, but if you need more info `lsblk --fs` will print file system data.
+
+In my case it was `/dev/nvme0n1p3` as shown here:
+
+```zsh
+❯ lsblk --fs
+NAME FSTYPE FSVER LABEL     UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+loop0
+     ntfs         Windows   E4E4752EE4750458                        3.1G    99% /mnt/bitlockermount
+nvme0n1
+│
+├─nvme0n1p1
+│    vfat   FAT32 SYSTEM    6672-A678                             228.7M    12% /boot/efi
+├─nvme0n1p2
+│
+├─nvme0n1p3
+│    BitLoc 2               9d785178-4188-4ae0-b2bc-b7d728ad5df2
+├─nvme0n1p4
+│    ntfs         WinRE_DRV 18F276F1F276D30C
+├─nvme0n1p5
+│    vfat   FAT32           6BC3-1E03                               3.5K   100% /boot
+├─nvme0n1p6
+│    swap   1               95a05717-fe25-4aa6-aef3-30664b1386c0                [SWAP]
+└─nvme0n1p7
+     ext4   1.0             170729b1-150c-4006-8521-b2e00c104be0    1.1T    27% /
+```
+
+Finally, the reason I'm writing this note. Here is how you unlock a partition with `dislocker`
+
+```zsh
+doas dislocker /dev/nvme0n1p3 -- /mnt/bitlocker
+
+doas mount -o loop /mnt/bitlocker/dislocker-file /mnt/bitlockermount
+```
+
+\*Do note that unlike the blogpost, I have omitted the -u\<password> param. Omitting it brought up a prompt that worked while the param always failed for me.

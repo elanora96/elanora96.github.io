@@ -1,14 +1,14 @@
 import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import globals from 'globals';
+import { defineConfig } from 'eslint/config';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
+export default defineConfig(
   eslint.configs.recommended,
-  tseslint.configs.recommendedTypeChecked,
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
   react.configs.flat.recommended,
