@@ -1,0 +1,88 @@
+# Installing 20 Years Of Fonts Ephemerally with Nix
+
+I recently grabbed several old family Windows PCs out of storage to archive whatever I may find on the HDDs. I will likely write more about this as I'm developing *what I consider to be* clever techniques in archiving nearly 20 years of family computing.
+
+Today though I'm just writing about fonts. Specifically how I am "installing" large amounts of fonts ephemerally using [Nix](https://nixos.org/). This is extremely useful as both my father and I were [DaFont](https://www.dafont.com/) addicts and many documents and projects may rely on obscure fonts.
+
+To simplify this post, we'll assume all fonts for a given Windows install were installed globally to `C:\\Windows\Fonts\`. We'll also assume they are all TrueType (`.ttf`).
+
+We'll also assume it makes sense for archiving purposes to move a large chunk of files to a Linux drive in a folder called `PROJECT` and the afforementioned fonts into this folder as well with
+
+```sh
+cp "$WINDOWS_MOUNTPOINT/Windows/Fonts" "$PROJECT_DIR/fonts"
+```
+
+Now that things are greatly simplified, we can make a derivation for all of these fonts.
+
+### `./fonts/default.nix`
+```nix
+{ pkgs }:
+
+pkgs.stdenvNoCC.mkDerivation {
+  pname = "ttf-derivation";
+  version = "0.1.0";
+
+  src = ./.;
+
+  installPhase = ''
+    runHook preInstall
+
+    install -D --mode 444 *.ttf --target-directory $out/share/fonts/truetype
+
+    runHook postInstall
+  '';
+}
+```
+
+Then, we can make a simple flake that builds an ephemeral shell with that font derivation installed. Note that the flake in this post uses [flake-parts](https://flake.parts/) to manage system, but there is no reason it is necessary.
+
+### `flake.nix`
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+  };
+
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
+      perSystem =
+        {
+          pkgs,
+          ...
+        }:
+        let
+          name = "Old-PC-Fonts";
+          Old-PC-Fonts = pkgs.callPackage ./fonts { inherit pkgs; };
+          fontsConf = pkgs.makeFontsConf {
+            fontDirectories = [
+              Old-PC-Fonts
+            ];
+          };
+        in
+        {
+          devShells.default = pkgs.mkShell {
+            name = "${name}-shell";
+            shellHook = ''
+              export FONTCONFIG_FILE="${fontsConf}"
+            '';
+          };
+        };
+    };
+}
+```
+
+Then when we run `nix develop`, an environment is built with all of those old fonts installed! Launching `libreoffice` for example in this environment loads in hundreds of new (old?) fonts that I don't usually have installed. It works great for viewing old `.docx`s, but it would be horrible to always have all of these installed on my *opinionated* GNU/Linux machine. Luckily we didn't touch our machine's font configuration, and exiting the environment is all we have to do to have a sane amount of fonts again.
+
+### Tip
+
+This approach pairs nicely with [nix-direnv](https://github.com/nix-community/nix-direnv) (which itself pairs nicely with [direnv-instant](https://github.com/Mic92/direnv-instant))

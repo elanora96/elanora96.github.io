@@ -29,6 +29,12 @@ export const blogPosts: BlogPost[] = [
     postIndexPath: 'pages/blog/posts/dislocker-notes.mdx',
     description: 'I was having trouble finding documentation for `dislocker`',
   },
+  {
+    postName: 'Installing 20 Years Of Fonts Ephemerally with Nix',
+    date: dayjs('2026-07-12 15:11:07'),
+    postIndexPath: 'pages/blog/posts/nix-old-fonts.mdx',
+    description: 'A somewhat clean solution to too many fonts',
+  },
 ];
 
 export const blogPostCollection = new PostCollection(blogPosts);
