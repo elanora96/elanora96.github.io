@@ -1,0 +1,12 @@
+[files]
+extend-exclude = ["secrets/*"]
+
+[default]
+extend-ignore-identifiers-re = [
+  # long base64 strings
+  "[a-zA-Z0-9+/]{50,}",
+]
+
+[default.extend-words]
+# Wha-what?
+Wha = "Wha"

@@ -2,4 +2,8 @@
 /build
 /result
 /.react-router
-/.idea
+/.direnv
+
+.pre-commit-config.yaml
+
+*.cpuprofile
