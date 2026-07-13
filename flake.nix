@@ -96,7 +96,7 @@
             projectRootFile = "flake.nix";
             programs = {
               # keep-sorted start block=yes
-              # biome.enable = true;
+              biome.enable = true;
               deadnix.enable = true;
               keep-sorted.enable = true;
               mdformat.enable = true;
@@ -104,6 +104,16 @@
               statix.enable = true;
               typos.enable = true;
               # keep-sorted end
+            };
+            settings.formatter = {
+              stylelint = {
+                command = "${pkgs.stylelint}/bin/stylelint";
+                options = [
+                  "--fix"
+                  "--max-warnings=0"
+                ];
+                includes = [ "*.css" ];
+              };
             };
           };
 

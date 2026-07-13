@@ -1,31 +1,32 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
-import Footer from '@components/Footer';
-import Navbar from '@components/Navbar';
+import Footer from "@components/Footer";
+import Navbar from "@components/Navbar";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 
-import type { Route } from './+types/root';
+import type { Route } from "./+types/root";
 
 export const links: Route.LinksFunction = () => [
-  { rel: 'shortcut icon', type: 'image', href: './assets/images/favicon.ico' },
+	{ rel: "shortcut icon", type: "image", href: "./assets/images/favicon.ico" },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <Meta />
-        <Links />
-        <title>elanora.lol</title>
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-        <script
-          id="spa-github-pages"
-          dangerouslySetInnerHTML={{
-            __html: `
+	return (
+		<html lang="en">
+			<head>
+				<meta charSet="UTF-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<Meta />
+				<Links />
+				<title>elanora.lol</title>
+			</head>
+			<body>
+				{children}
+				<ScrollRestoration />
+				<Scripts />
+				<script
+					id="spa-github-pages"
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: No easy way around it
+					dangerouslySetInnerHTML={{
+						__html: `
             // Single Page Apps for GitHub Pages
             // MIT License
             // https://github.com/rafgraph/spa-github-pages
@@ -52,21 +53,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 );
               }
             })(window.location);`,
-          }}
-        />
-      </body>
-    </html>
-  );
+					}}
+				/>
+			</body>
+		</html>
+	);
 }
 
 export default function App() {
-  return (
-    <>
-      <Navbar />
-      <main id="outlet">
-        <Outlet />
-      </main>
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<Navbar />
+			<main id="outlet">
+				<Outlet />
+			</main>
+			<Footer />
+		</>
+	);
 }

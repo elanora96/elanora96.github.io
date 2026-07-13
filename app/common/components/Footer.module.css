@@ -1,30 +1,31 @@
 .Footer {
-  position: relative;
-  bottom: 0;
+	position: relative;
+	bottom: 0;
 
-  overflow: hidden;
+	overflow: hidden;
 
-  height: var(--footer-height);
+	height: var(--footer-height);
 
-  color: var(--color-primary);
-  text-align: center;
+	color: var(--color-primary);
+	text-align: center;
 
-  background-color: var(--color-background);
-  background-image: linear-gradient(
-    to top,
-    color-mix(in srgb, var(--color-dimmed) 20%, transparent),
-    color-mix(in srgb, var(--color-dimmed) 0%, transparent)
-  );
+	background-color: var(--color-background);
+	background-image: linear-gradient(
+		to top,
+		color-mix(in srgb, var(--color-dimmed) 20%, transparent),
+		color-mix(in srgb, var(--color-dimmed) 0%, transparent)
+	);
 
-  & strong {
-    font-size: 1.45em;
-    font-stretch: extra-condensed;
-  }
+	& strong {
+		font-size: 1.45em;
 
-  @media print {
-    .Footer {
-      position: static;
-      overflow: unset;
-    }
-  }
+		font-stretch: extra-condensed;
+	}
+
+	@media print {
+		.Footer {
+			position: static;
+			overflow: unset;
+		}
+	}
 }
